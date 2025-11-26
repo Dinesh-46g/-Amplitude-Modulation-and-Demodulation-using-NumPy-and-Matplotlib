@@ -15,6 +15,28 @@ Amplitude Modulation (AM) is a technique used in electronic communication, prima
 information via a radio carrier wave. In AM, the amplitude of the carrier wave is varied in proportion to that of 
 the message signal. The general form of an AM signal is: 
 
+PROGRAM:
+```asm
+import numpy as np
+import matplotlib.pyplot as plt
+Am = 9.7
+Ac = 19.4
+fm = 630
+fc = 6300
+fs = 63000
+t = np.arange(0, 2/fm, 1/fs)
+m = Am * np.cos(2 * np.pi * fm * t)
+plt.subplot(3, 1, 1)
+plt.plot(t, m)
+c = Ac * np.cos(2 * np.pi * fc * t)
+plt.subplot(3, 1, 2)
+plt.plot(t, c)
+s = (Ac + m) * np.cos(2 * np.pi * fc * t)
+plt.subplot(3, 1, 3)
+plt.plot(t, s)
+plt.tight_layout()
+plt.show()
+```
 
 __Algorithm__:
 1. Initialize Parameters: Set the values for carrier frequency, message frequency, and sampling frequency. 
@@ -25,8 +47,11 @@ __Algorithm__:
 6. Plot the Signals: Use Matplotlib to plot the message signal, carrier signal, and modulated signal.
 
  __Output__:
+![WhatsApp Image 2025-11-22 at 17 33 45_5ef1277e](https://github.com/user-attachments/assets/1caccc60-f04e-4fab-aff4-0777a9065c32)
 
+<img width="867" height="1280" alt="image" src="https://github.com/user-attachments/assets/4493721d-d9f4-4b48-8774-51a88ae40bd2" />
 
  __Result__:
+ The message signal, carrier signal, and amplitude modulated (AM) signal will be displayed in separate plots. Thus AM is implemented using numPy and Matplotlib.
 
 
